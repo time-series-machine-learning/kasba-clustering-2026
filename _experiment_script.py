@@ -5,10 +5,11 @@ import numpy as np
 from tsml_eval.experiments import (
     run_clustering_experiment as tsml_clustering_experiment,
 )
-from tsml_eval.publications.clustering.kasba._model_configuration import (
+
+from _model_configuration import (
     EXPERIMENT_MODELS,
 )
-from tsml_eval.publications.clustering.kasba._utils import (
+from _utils import (
     _parse_command_line_bool,
     check_experiment_results_exist,
     load_dataset_from_file,
