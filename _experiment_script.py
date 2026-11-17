@@ -146,5 +146,5 @@ if __name__ == "__main__":
             dataset_path=dataset_path,
             results_path=results_path,
             combine_test_train=combine_test_train,
-            resample_id=1,
+            resample_id=0,
         )
