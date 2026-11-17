@@ -5,7 +5,7 @@ This repository accompanies the paper:
 
 > **Rock the KASBA: Blazingly Fast and Accurate Time Series Clustering**
 >
-> https://arxiv.org/abs/2411.17838
+> Data Mining and Knowledge Discovery, 2026. https://doi.org/10.1007/s10618-026-01189-9
 
 KASBA is a $k$-means clustering algorithm that uses the Move-Split-Merge (MSM) elastic distance at all stages of clustering, applies a randomised stochastic subgradient descent to find barycentre centroids, links each stage of clustering to accelerate convergence and exploits the metric property of MSM distance to avoid a large proportion of distance calculations. It is a versatile and scalable clusterer designed for real-world TSCL applications. It allows practitioners to balance  runtime and clustering performance when similarity is best measured by an elastic distance.
 
@@ -17,9 +17,8 @@ This repository contains the exact model configurations, experiment scripts, and
 
 ## 📁 Repository Structure
 
-    kasba/
+    kasba-clustering-2026/
     ├── README.md                   # This file
-    ├── __init__.py
     ├── _utils.py                   # Internal utilities used across the project
     ├── _model_configuration.py     # Definitions of all models and configurations used in experiments
     ├── _experiment_script.py       # Script used to run experiments on datasets
@@ -39,17 +38,17 @@ This repository contains the exact model configurations, experiment scripts, and
 
 ### Install dependencies
 
-Create and activate a virtual environment from tsml-eval:
+Create and activate a virtual environment in this repository:
 
     python3 -m venv venv
     source venv/bin/activate
-    pip install -e .
+    pip install -r requirements.txt
 
-If you are reading this message you will have to install a specific branch
-of aeon while we wait for a new release. Run the following command to install:
+The results in the paper were produced with a development branch of aeon. To
+install that version, run:
 
     pip uninstall aeon
-    pip install git+https://github.com/aeon-toolkit/aeon@kasba-results#egg=aeon
+    pip install git+https://github.com/aeon-toolkit/aeon@65115e407f1a4baed47180ba4142c65269f2c07d#egg=aeon
 
 Note: The project uses aeon, numpy, matplotlib, and other standard scientific Python packages.
 
@@ -59,7 +58,7 @@ Note: The project uses aeon, numpy, matplotlib, and other standard scientific Py
 
 Minimal example from the kasba.ipynb notebook:
 
-    from kasba import KASBA
+    from aeon.clustering import KASBA
     from aeon.datasets import load_dataset
 
     X, y = load_dataset("GunPoint")
@@ -97,13 +96,23 @@ Use the result_visualisation.ipynb notebook to generate:
 
 If you use KASBA in academic work, please cite the paper:
 
-    C. Holder, A. Bagnall, Rock the kasba: Blazingly fast and accurate time
-    series clustering, arXiv preprint arXiv:2411.17838 (2024)
-
-(A full BibTeX entry will be added once the paper is published.)
+```bibtex
+@article{holder2026rock,
+  title={Rock the KASBA: blazingly fast and accurate time series clustering},
+  author={Holder, Christopher and Bagnall, Anthony},
+  journal={Data Mining and Knowledge Discovery},
+  volume={40},
+  number={2},
+  pages={21},
+  year={2026},
+  publisher={Springer},
+  doi={10.1007/s10618-026-01189-9}
+}
+```
 
 ---
 
 ## 🤝 Contact
 
-For questions or queries please open an issue on tsml-eval.
+For questions about the paper or this repository, feel free to email the authors or
+contact us on the [aeon Discord](https://discord.gg/D6rzqHGKRJ).
